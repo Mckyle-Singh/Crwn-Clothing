@@ -1,5 +1,9 @@
 import { useState } from "react";
 import { createAuthUserWithEmailAndPassword,createUserDocumentFromAuth } from "../../utils/firebase/firebase.utils";
+import FormInput from "../form-input/form-input.component";
+import "./sign-up-form.styles.scss";
+import Button from "../button/button.component";
+
 
 //creating objects for the form text fields
 const defaultFormFields = {
@@ -55,40 +59,45 @@ const SignUpForm = () => {
 
 
    return (
-      <div>
-         <h1>sign up with your email and password</h1>
+      <div className="sign-up-container">
+         <h2>Dont have an account?</h2>
+         <span>sign up with your email and password</span>
          <form onSubmit={handleSubmit}>
 
-            <label>Display Name</label>
-            <input type="text"
+            
+            <FormInput type="text"
+               label="Display Name"
                required
                onChange={handleChange}
                name="displayName"
                value={displayName}>
-            </input>
+            </FormInput>
 
-            <label>Email</label>
-            <input type="email"
+            
+            <FormInput type="email"
+               label="Email"
                required onChange={handleChange}
                name="email"
                value={email}>
-            </input>
+            </FormInput>
 
-            <label>Password</label>
-            <input type="password"
+            
+            <FormInput type="password"
+               label="Password"
                required onChange={handleChange}
                name="password"
                value={password}>
-               </input>
+               </FormInput>
             
-            <label>Confirm Password </label>
-            <input type="password"
+            
+            <FormInput type="password"
+               label="Confirm Password"
                required onChange={handleChange}
                name="confirmPassword"
                value={confirmPassword}>
-               </input>
+               </FormInput>
 
-            <button type="submit"> Sign Up</button>
+            <Button type="submit"> Sign Up</Button>
             
          </form>
       </div>
